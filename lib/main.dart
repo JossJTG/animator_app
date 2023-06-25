@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage('assets/images/background2.jpg'),
+              image: DecorationImage(image: AssetImage('assets/images/background1.jpg'),
               fit: BoxFit.cover)),
 
               child: Container(
@@ -43,8 +43,13 @@ class _HomePageState extends State<HomePage> {
                         height: 250,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            makeItem()
+                          children: <Widget>[
+                            makeItem(image: 'assets/images/place.jpg'),
+                            makeItem(image: 'assets/images/place2.jpg'),
+                            makeItem(image: 'assets/images/place3.jpg'),
+                            makeItem(image: 'assets/images/place4.jpg'),
+                            makeItem(image: 'assets/images/place5.jpg'),
+                            makeItem(image: 'assets/images/place6.jpg'),
                           ],
                         ),
                       ),
@@ -67,23 +72,53 @@ class _HomePageState extends State<HomePage> {
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.white70,
+          color: Colors.white,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
+                      borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                        image: AssetImage('assets/images/place.jpg'),
-                      ),
-                    ),
+                        image: AssetImage(image),
+                        fit: BoxFit.cover,
+                        )),
                   ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.grey[200],
+                    ),
+                    child: Text('Más Info',
+                      style: TextStyle(color: Colors.grey.shade600),
+                      
+                    ),
+                    
+                  )
                 ],
+              ),
+              SizedBox(height: 30,),
+              Text(
+                'Texto de descripción',
+                style: TextStyle(color: Colors.grey.shade900,
+                fontSize: 25,
+                fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10,),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Icon(
+                  Icons.star_border, 
+                  color: Colors.blue,
+                  size: 40,
+                ),
               )
             ],
           )
